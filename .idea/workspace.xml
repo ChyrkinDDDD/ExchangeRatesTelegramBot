@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a3ae221-9cc0-4964-a171-570f75010a48" name="Changes" comment="Create project">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main/AppLauncher.java" afterDir="false" />
-    </list>
+    <list default="true" id="4a3ae221-9cc0-4964-a171-570f75010a48" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,6 +20,7 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="Dima &lt;probnie.blogi@gmail.com&gt;" />
         <option value="Dima" />
       </list>
     </option>
@@ -84,10 +83,20 @@
       <option name="presentableId" value="Default" />
       <updated>1710579088079</updated>
     </task>
+    <task id="LOCAL-00001" summary="Create AppLauncher">
+      <option name="closed" value="true" />
+      <created>1710579426134</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1710579426134</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Create project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create project" />
+    <MESSAGE value="Create AppLauncher" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create AppLauncher" />
   </component>
 </project>
