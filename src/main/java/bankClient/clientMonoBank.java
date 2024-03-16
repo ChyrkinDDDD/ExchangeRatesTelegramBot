@@ -1,7 +1,6 @@
 package bankClient;
 
 import bankModel.MonoBank;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -13,7 +12,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.List;
-import java.util.SortedMap;
+
 
 public class clientMonoBank {
     private final String MONO_URI = "https://api.monobank.ua/bank/currency";
@@ -27,7 +26,7 @@ public class clientMonoBank {
 
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-            return objectMapper.readValue(response.body(), new TypeReference<List<MonoBank>>() {
+            return objectMapper.readValue(response.body(), new TypeReference<>() {
             });
 
         }catch (URISyntaxException e){
