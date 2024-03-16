@@ -4,12 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="4a3ae221-9cc0-4964-a171-570f75010a48" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/src/main/java/telegrambot/BotConstants.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/telegrambot/CurrencyExchangeBot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main/AppLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/AppLauncher.java" afterDir="false" />
     </list>
+=======
+<<<<<<< Updated upstream
+    <list default="true" id="4a3ae221-9cc0-4964-a171-570f75010a48" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+=======
+    <list default="true" id="4a3ae221-9cc0-4964-a171-570f75010a48" name="Changes" comment="" />
+>>>>>>> Stashed changes
+>>>>>>> master
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,6 +55,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -54,8 +65,20 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0"
+=======
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+>>>>>>> master
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.AppLauncher">
     <configuration name="AppLauncher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main.AppLauncher" />
@@ -101,6 +124,12 @@
       <option name="project" value="LOCAL" />
       <updated>1710579426134</updated>
     </task>
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+    <option name="localTasksCounter" value="2" />
+=======
+>>>>>>> master
     <task id="LOCAL-00002" summary="Add dependency">
       <option name="closed" value="true" />
       <created>1710583760896</created>
@@ -109,13 +138,47 @@
       <option name="project" value="LOCAL" />
       <updated>1710583760896</updated>
     </task>
+<<<<<<< HEAD
     <option name="localTasksCounter" value="3" />
+=======
+    <task id="LOCAL-00003" summary="CreateBot">
+      <option name="closed" value="true" />
+      <created>1710586087199</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1710586087199</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+>>>>>>> Stashed changes
+>>>>>>> master
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Create project" />
     <MESSAGE value="Create AppLauncher" />
+<<<<<<< HEAD
     <MESSAGE value="Add dependency" />
     <option name="LAST_COMMIT_MESSAGE" value="Add dependency" />
+=======
+<<<<<<< Updated upstream
+    <option name="LAST_COMMIT_MESSAGE" value="Create AppLauncher" />
+=======
+    <MESSAGE value="Add dependency" />
+    <MESSAGE value="CreateBot" />
+    <option name="LAST_COMMIT_MESSAGE" value="CreateBot" />
+>>>>>>> Stashed changes
+>>>>>>> master
   </component>
 </project>
