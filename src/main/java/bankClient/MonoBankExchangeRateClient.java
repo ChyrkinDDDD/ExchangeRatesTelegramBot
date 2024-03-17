@@ -18,7 +18,7 @@ public class MonoBankExchangeRateClient {
     private final String MONO_URI = "https://api.monobank.ua/bank/currency";
     HttpClient client = HttpClient.newHttpClient();
     ObjectMapper objectMapper = new ObjectMapper();
-    public List<MonoBank> getMonoBank(){
+    public List<MonoBank> getMonoBankExchangeRates(){
         try{
             HttpRequest request = HttpRequest.newBuilder(new URI(MONO_URI))
                     .GET()

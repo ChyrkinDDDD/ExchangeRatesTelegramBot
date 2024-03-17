@@ -1,7 +1,6 @@
 package bankClient;
 
-import bankModel.NBUExchangeRate;
-
+import bankModel.NBU;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -19,7 +18,7 @@ public class NBUExchangeRateClient {
     private final HttpClient client = HttpClient.newHttpClient();
     private final ObjectMapper objectMapper = new ObjectMapper();
 
-    public List<NBUExchangeRate> getNBUExchangeRates() {
+    public List<NBU> getNBUExchangeRates() {
 
         try {
             HttpRequest request = HttpRequest.newBuilder(new URI(NBU_URI))
