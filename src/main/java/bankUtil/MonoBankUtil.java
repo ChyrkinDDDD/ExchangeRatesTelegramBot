@@ -25,10 +25,9 @@ public class MonoBankUtil implements BankUtil{
                 monoBank = element;
             }
         }
-        String a = "%";
 
         return String.format("course in Monobank USD/UAH\npurchase: %."+reduction+"f" +
-                "\nselling: %."+reduction+"f",
+                        "\nselling: %."+reduction+"f",
                 monoBank.getRateBuy(),monoBank.getRateSell());
     }
 
@@ -41,10 +40,9 @@ public class MonoBankUtil implements BankUtil{
                 monoBank = element;
             }
         }
-        String a = "%";
 
         return String.format("course in Monobank EUR/UAH\npurchase: %."+reduction+"f" +
-                "\nselling: %."+reduction+"f",
+                        "\nselling: %."+reduction+"f",
                 monoBank.getRateBuy(),monoBank.getRateSell());
     }
 }
