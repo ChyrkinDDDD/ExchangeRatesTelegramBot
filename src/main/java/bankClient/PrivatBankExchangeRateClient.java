@@ -12,12 +12,12 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.List;
 
-public class PrivatBankClient {
+public class PrivatBankExchangeRateClient {
     private final String PRIVAT_URI = "https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5";
     private final HttpClient client = HttpClient.newHttpClient();
     private final ObjectMapper objectMapper = new ObjectMapper();
 
-    public List<PrivatBank> getPrivatBank() {
+    public List<PrivatBank> getPrivatBankExchangeRates() {
         try {
             HttpRequest request = HttpRequest.newBuilder(new URI(PRIVAT_URI))
                     .GET()

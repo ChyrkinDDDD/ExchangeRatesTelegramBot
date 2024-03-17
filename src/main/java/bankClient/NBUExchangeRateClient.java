@@ -1,6 +1,6 @@
 package bankClient;
 
-import bankModel.MonoBank;
+import bankModel.NBU;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -13,14 +13,15 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.List;
 
+public class NBUExchangeRateClient {
+    private final String NBU_URI = "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json";
+    private final HttpClient client = HttpClient.newHttpClient();
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
-public class clientMonoBank {
-    private final String MONO_URI = "https://api.monobank.ua/bank/currency";
-    HttpClient client = HttpClient.newHttpClient();
-    ObjectMapper objectMapper = new ObjectMapper();
-    public List<MonoBank> getMonoBank(){
-        try{
-            HttpRequest request = HttpRequest.newBuilder(new URI(MONO_URI))
+    public List<NBU> getNBUExchangeRates() {
+
+        try {
+            HttpRequest request = HttpRequest.newBuilder(new URI(NBU_URI))
                     .GET()
                     .build();
 
@@ -29,17 +30,17 @@ public class clientMonoBank {
             return objectMapper.readValue(response.body(), new TypeReference<>() {
             });
 
-        }catch (URISyntaxException e){
-            System.out.println("MONO URI SYNTAX EXCEPTION!");
+        } catch (URISyntaxException e) {
+            System.out.println("NBU URI SYNTAX EXCEPTION!");
             throw new RuntimeException(e);
         } catch (JsonMappingException e) {
-            System.out.println("MONO Json Mapping Exception!");
+            System.out.println("NBU Json Mapping Exception!");
             throw new RuntimeException(e);
         } catch (IOException e) {
-            System.out.println("MONO IOException!");
+            System.out.println("NBU IOException!");
             throw new RuntimeException(e);
         } catch (InterruptedException e) {
-            System.out.println("MONO Interrupted Exception");
+            System.out.println("NBU Interrupted Exception");
             throw new RuntimeException(e);
         }
     }
