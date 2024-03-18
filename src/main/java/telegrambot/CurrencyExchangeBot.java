@@ -11,6 +11,9 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
 import java.util.*;
 
+import static telegrambot.BotConstants.BOT_NAME;
+import static telegrambot.BotConstants.BOT_TOKEN;
+
 
 public class CurrencyExchangeBot extends TelegramLongPollingBot {
 
@@ -22,14 +25,14 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
 
     @Override
         public String getBotUsername() {
-            return "GroupProjectGoitBot";
+            return BOT_NAME;
         }
 
 
 
         @Override
         public String getBotToken() {
-            return "6432351541:AAGCMvMYC1UgpUDpKtDnOVF_hEM6SGdz-qE";
+            return BOT_TOKEN;
         }
 
         @Override

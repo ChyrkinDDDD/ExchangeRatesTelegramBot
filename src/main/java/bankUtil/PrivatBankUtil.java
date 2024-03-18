@@ -1,6 +1,7 @@
 package bankUtil;
 
 import bankModel.PrivatBank;
+import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
