@@ -22,14 +22,14 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
 
     @Override
         public String getBotUsername() {
-            return "GroupProjectGoitBot";
+            return "bot name";
         }
 
 
 
         @Override
         public String getBotToken() {
-            return "6432351541:AAGCMvMYC1UgpUDpKtDnOVF_hEM6SGdz-qE";
+            return "bot token";
         }
 
         @Override
