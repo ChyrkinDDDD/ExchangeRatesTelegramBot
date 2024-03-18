@@ -26,6 +26,7 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
         }
 
 
+
         @Override
         public String getBotToken() {
             return "6432351541:AAGCMvMYC1UgpUDpKtDnOVF_hEM6SGdz-qE";
