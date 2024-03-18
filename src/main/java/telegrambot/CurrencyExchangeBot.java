@@ -73,6 +73,7 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
             }
         }
 
+
         private void sendSettingsMenu(Long chatId) {
             SendMessage settingsMessage = new SendMessage();
             settingsMessage.setText("Settings Menu");
