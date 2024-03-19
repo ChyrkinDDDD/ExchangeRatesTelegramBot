@@ -17,7 +17,8 @@ public class PrivatBankExchangeRateClient {
     private final HttpClient client = HttpClient.newHttpClient();
     private final ObjectMapper objectMapper = new ObjectMapper();
 
-    public List<PrivatBank> getPrivatBankExchangeRates() {
+    public List<PrivatBank> getPrivatBankExchangeRates
+            () {
         try {
             HttpRequest request = HttpRequest.newBuilder(new URI(PRIVAT_URI))
                     .GET()

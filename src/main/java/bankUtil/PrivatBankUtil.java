@@ -29,8 +29,8 @@ public class PrivatBankUtil implements BankUtil {
         StringBuilder result = new StringBuilder();
         for (PrivatBank bank : exchangeRates) {
             result.append("Course in PrivatBank EUR/UAH\n");
-            result.append("purchase: ").append(String.format("%.2f", bank.getBuy())).append("\n");
-            result.append("selling: ").append(String.format("%.2f", bank.getSale())).append("\n");
+            result.append("purchase: ").append(String.format("%."+numberAfterComa+"f", bank.getBuy())).append("\n");
+            result.append("selling: ").append(String.format("%."+numberAfterComa+"f", bank.getSale())).append("\n");
         }
         return result.toString();
     }
@@ -44,8 +44,8 @@ public class PrivatBankUtil implements BankUtil {
         StringBuilder result = new StringBuilder();
         for (PrivatBank bank : exchangeRates) {
             result.append("Course in PrivatBank USD/UAH\n");
-            result.append("purchase: ").append(String.format("%.2f", bank.getBuy())).append("\n");
-            result.append("selling: ").append(String.format("%.2f", bank.getSale())).append("\n");
+            result.append("purchase: ").append(String.format("%."+numberAfterComa+"f", bank.getBuy())).append("\n");
+            result.append("selling: ").append(String.format("%."+numberAfterComa+"f", bank.getSale())).append("\n");
         }
         return result.toString();
     }
