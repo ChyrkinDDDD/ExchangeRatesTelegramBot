@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f3ee305-d2d5-483f-bbdc-2757c3b02deb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main/AppLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/AppLauncher.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,10 +23,11 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="rework-buttons" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -45,14 +40,14 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.AppLauncher.executor": "Run",
+    "Application.CurrencyExchangeBot.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "rework-buttons",
+    "git-widget-placeholder": "BUTTONS-WORK-GOOD",
     "kotlin-language-version-configured": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.CurrencyExchangeBot">
     <configuration name="AppLauncher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main.AppLauncher" />
       <module name="ExchangeRatesTelegramBot" />
@@ -66,8 +61,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CurrencyExchangeBot" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="telegrambot.CurrencyExchangeBot" />
+      <module name="ExchangeRatesTelegramBot" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="telegrambot.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CurrencyExchangeBot" />
         <item itemvalue="Application.AppLauncher" />
         <item itemvalue="Application.AppLauncher" />
       </list>
@@ -130,7 +139,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710690840193</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Сховав токен">
+      <option name="closed" value="true" />
+      <created>1710786228781</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1710786228781</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -141,9 +158,9 @@
             <State>
               <option name="COLUMN_ID_WIDTH">
                 <map>
-                  <entry key="Table.Default.Author.ColumnIdWidth" value="70" />
+                  <entry key="Table.Default.Author.ColumnIdWidth" value="69" />
                   <entry key="Table.Default.Date.ColumnIdWidth" value="91" />
-                  <entry key="Table.Space.CommitStatus.ColumnIdWidth" value="36" />
+                  <entry key="Table.Space.CommitStatus.ColumnIdWidth" value="37" />
                 </map>
               </option>
             </State>
@@ -158,6 +175,7 @@
     <MESSAGE value="Написав інтерфейс MonoUtil 2.0" />
     <MESSAGE value="Перейменував класи клієнтів" />
     <MESSAGE value="Рефакторинг коднеймінгу" />
-    <option name="LAST_COMMIT_MESSAGE" value="Рефакторинг коднеймінгу" />
+    <MESSAGE value="Сховав токен" />
+    <option name="LAST_COMMIT_MESSAGE" value="Сховав токен" />
   </component>
 </project>
