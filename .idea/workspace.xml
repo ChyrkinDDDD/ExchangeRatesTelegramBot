@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1f3ee305-d2d5-483f-bbdc-2757c3b02deb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bankClient/PrivatBankExchangeRateClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bankClient/PrivatBankExchangeRateClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bankUtil/MonoBankUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bankUtil/MonoBankUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bankUtil/PrivatBankUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bankUtil/PrivatBankUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/telegrambot/CurrencyExchangeBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/telegrambot/CurrencyExchangeBot.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,10 +43,11 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "init-getInfo-button"
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.CurrencyExchangeBot">
+  <component name="RunManager" selected="Application.AppLauncher">
     <configuration name="AppLauncher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main.AppLauncher" />
       <module name="ExchangeRatesTelegramBot" />
@@ -78,6 +76,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.AppLauncher" />
         <item itemvalue="Application.CurrencyExchangeBot" />
         <item itemvalue="Application.AppLauncher" />
         <item itemvalue="Application.AppLauncher" />
@@ -149,10 +148,49 @@
       <option name="project" value="LOCAL" />
       <updated>1710786228781</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Підправив класи, написав методи getDefaultSettings i getInfo">
+      <option name="closed" value="true" />
+      <created>1710874669026</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1710874669026</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/master" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="*" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
@@ -160,9 +198,9 @@
             <State>
               <option name="COLUMN_ID_WIDTH">
                 <map>
-                  <entry key="Table.Default.Author.ColumnIdWidth" value="69" />
-                  <entry key="Table.Default.Date.ColumnIdWidth" value="91" />
-                  <entry key="Table.Space.CommitStatus.ColumnIdWidth" value="37" />
+                  <entry key="Table.Default.Author.ColumnIdWidth" value="50" />
+                  <entry key="Table.Default.Date.ColumnIdWidth" value="44" />
+                  <entry key="Table.Space.CommitStatus.ColumnIdWidth" value="43" />
                 </map>
               </option>
             </State>
@@ -178,6 +216,7 @@
     <MESSAGE value="Перейменував класи клієнтів" />
     <MESSAGE value="Рефакторинг коднеймінгу" />
     <MESSAGE value="Сховав токен" />
-    <option name="LAST_COMMIT_MESSAGE" value="Сховав токен" />
+    <MESSAGE value="Підправив класи, написав методи getDefaultSettings i getInfo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Підправив класи, написав методи getDefaultSettings i getInfo" />
   </component>
 </project>
