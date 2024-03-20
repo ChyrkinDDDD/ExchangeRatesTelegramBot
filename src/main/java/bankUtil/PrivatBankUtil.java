@@ -1,12 +1,17 @@
 package bankUtil;
 
 import bankModel.PrivatBank;
+
+import lombok.Data;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class PrivatBankUtil implements BankUtil {
+
     private List<PrivatBank> exchangeRates;
     private int numberAfterComa;
+
 
     public PrivatBankUtil(int numberAfterComa) {
         this.numberAfterComa = numberAfterComa;
