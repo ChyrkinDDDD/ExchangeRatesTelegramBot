@@ -1,14 +1,17 @@
 package bankUtil;
 
 import bankModel.PrivatBank;
+
 import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PrivatBankUtil implements BankUtil {
-    private int numberAfterComa;
+
     private List<PrivatBank> exchangeRates;
+    private int numberAfterComa;
+
 
     public PrivatBankUtil(int numberAfterComa) {
         this.numberAfterComa = numberAfterComa;
@@ -21,39 +24,39 @@ public class PrivatBankUtil implements BankUtil {
     }
 
     @Override
-    public String getEUR() {
-        if (exchangeRates.isEmpty()) {
+    public String getUSD() {
+        PrivatBank privatBank = findCurrencyExchange("USD");
+        if (privatBank == null) {
             return "Exchange rates not available. Please fetch data first.";
         }
 
-        StringBuilder result = new StringBuilder();
-        for (PrivatBank bank : exchangeRates) {
-            result.append("Course in PrivatBank EUR/UAH\n");
-            result.append("purchase: ").append(String.format("%."+numberAfterComa+"f", bank.getBuy())).append("\n");
-            result.append("selling: ").append(String.format("%."+numberAfterComa+"f", bank.getSale())).append("\n");
-        }
-        return result.toString();
+        return String.format("Course in PrivatBank USD/UAH\npurchase: %." + numberAfterComa +
+                        "f\nselling: %." + numberAfterComa + "f",
+                Double.parseDouble(privatBank.getBuy()), Double.parseDouble(privatBank.getSale()));
     }
 
     @Override
-    public String getUSD() {
-        if (exchangeRates.isEmpty()) {
+    public String getEUR() {
+        PrivatBank privatBank = findCurrencyExchange("EUR");
+        if (privatBank == null) {
             return "Exchange rates not available. Please fetch data first.";
         }
 
-        StringBuilder result = new StringBuilder();
-        for (PrivatBank bank : exchangeRates) {
-            result.append("Course in PrivatBank USD/UAH\n");
-            result.append("purchase: ").append(String.format("%."+numberAfterComa+"f", bank.getBuy())).append("\n");
-            result.append("selling: ").append(String.format("%."+numberAfterComa+"f", bank.getSale())).append("\n");
-        }
-        return result.toString();
-    }
-    public List<PrivatBank> getExchangeRates() {
-        return exchangeRates;
+        return String.format("Course in PrivatBank EUR/UAH\npurchase: %." + numberAfterComa +
+                        "f\nselling: %." + numberAfterComa + "f",
+                Double.parseDouble(privatBank.getBuy()), Double.parseDouble(privatBank.getSale()));
     }
 
     public void setExchangeRates(List<PrivatBank> exchangeRates) {
         this.exchangeRates = exchangeRates;
+    }
+
+    private PrivatBank findCurrencyExchange(String currency) {
+        for (PrivatBank bank : exchangeRates) {
+            if (bank.getCcy().equals(currency)) {
+                return bank;
+            }
+        }
+        return null;
     }
 }
