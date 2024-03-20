@@ -57,6 +57,7 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
                     case "GetInfo":
                         sendInfo(chatId);
                         break;
+
                     case "Start" :
                         sendStartMenu(chatId);
                         break;
@@ -71,6 +72,7 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
                 message.setText("Hello, glad to see you. This bot will help you track currency exchange rates.");
                 attachButtons(message, buttons);
                 message.setChatId(chatId);
+
                 try {
                     execute(message);
                 } catch (TelegramApiException e) {
