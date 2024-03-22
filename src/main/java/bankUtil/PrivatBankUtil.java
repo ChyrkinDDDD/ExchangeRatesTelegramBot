@@ -29,6 +29,7 @@ public class PrivatBankUtil implements BankUtil {
         }
 
         return getFormattedExchangeRate(privatBank);
+
     }
 
     @Override
@@ -43,6 +44,7 @@ public class PrivatBankUtil implements BankUtil {
         }
 
         return getFormattedExchangeRate(privatBank);
+
     }
 
     public void setExchangeRates(List<PrivatBank> exchangeRates) {
@@ -66,4 +68,6 @@ public class PrivatBankUtil implements BankUtil {
         }
         return null;
     }
+
 }
+
