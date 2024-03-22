@@ -18,7 +18,7 @@ public class MonoBankUtil implements BankUtil{
     }
     @Override
     public void setReduction(int numberAfterComa) {
-        numberAfterComa = numberAfterComa;
+        this.numberAfterComa = numberAfterComa;
     }
 
     @Override
