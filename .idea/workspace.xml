@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1f3ee305-d2d5-483f-bbdc-2757c3b02deb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bankUtil/MonoBankUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bankUtil/MonoBankUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/telegrambot/BotConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/telegrambot/BotConstants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/telegrambot/CurrencyExchangeBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/telegrambot/CurrencyExchangeBot.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +45,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "method-choice-sign-after-coma",
     "ignore.virus.scanning.warn.message": "true"
   }
 }]]></component>

@@ -20,69 +20,85 @@ import static telegrambot.BotConstants.BOT_TOKEN;
 
 public class CurrencyExchangeBot extends TelegramLongPollingBot {
     private BankUtil userBankSettings = null;
-    private int numberAfterComa;
+    private int numberAfterComa = 2;
 
     @Override
-        public String getBotUsername() {
-            return BOT_NAME;
-        }
+    public String getBotUsername() {
+        return BOT_NAME;
+    }
 
-        @Override
-        public String getBotToken() {
-            return BOT_TOKEN;
-        }
+    @Override
+    public String getBotToken() {
+        return BOT_TOKEN;
+    }
 
-        @Override
-        public void onUpdateReceived(Update update) {
-            Long chatId = getChatId(update);
+    @Override
+    public void onUpdateReceived(Update update) {
+        Long chatId = getChatId(update);
 
-            if (update.hasCallbackQuery()) {
-                String callbackData = update.getCallbackQuery().getData();
-                switch (callbackData) {
-                    case "Settings":
-                        sendSettingsMenu(chatId);
-                        break;
-                    case "DecimalPlaces":
-                        sendDecimalPlacesMenu(chatId);
-                        break;
-                    case "Banks":
-                        sendBanksMenu(chatId);
-                        break;
-                    case "Currencies":
-                        sendCurrenciesMenu(chatId);
-                        break;
-                    case "AlertTime":
-                        sendAlertTimeMenu(chatId);
-                        break;
-                    case "GetInfo":
-                        sendInfo(chatId);
-                        break;
+        if (update.hasCallbackQuery()) {
+            String callbackData = update.getCallbackQuery().getData();
+            switch (callbackData) {
+                case "Settings":
+                    sendSettingsMenu(chatId);
+                    break;
+                case "DecimalPlaces":
+                    sendDecimalPlacesMenu(chatId);
+                    break;
+                case "Banks":
+                    sendBanksMenu(chatId);
+                    break;
+                case "Currencies":
+                    sendCurrenciesMenu(chatId);
+                    break;
+                case "AlertTime":
+                    sendAlertTimeMenu(chatId);
+                    break;
+                case "GetInfo":
+                    sendInfo(chatId);
+                    break;
 
-                    case "Start" :
-                        sendStartMenu(chatId);
-                        break;
-                    default:
-                }
-            } else {
-                Map<String, String> buttons = new LinkedHashMap<>();
-                buttons.put("Get Info", "GetInfo");
-                buttons.put("Settings", "Settings");
+                case "Start":
+                    sendStartMenu(chatId);
+                    break;
+                case "2":
+                    numberAfterComa = 2;
+                    userBankSettings.setReduction(numberAfterComa);
+                    sendSettingsMenu(chatId);
+                    break;
+                case "3":
+                    numberAfterComa = 3;
+                    userBankSettings.setReduction(numberAfterComa);
+                    sendSettingsMenu(chatId);
+                    break;
+                case "4":
+                    numberAfterComa = 4;
+                    userBankSettings.setReduction(numberAfterComa);
+                    sendSettingsMenu(chatId);
+                    break;
+                default:
+            }
+        } else {
+            Map<String, String> buttons = new LinkedHashMap<>();
+            buttons.put("Get Info", "GetInfo");
+            buttons.put("Settings", "Settings");
 
-                SendMessage message = new SendMessage();
-                message.setText("Hello, glad to see you. This bot will help you track currency exchange rates.");
-                attachButtons(message, buttons);
-                message.setChatId(chatId);
+            SendMessage message = new SendMessage();
+            message.setText("Hello, glad to see you. This bot will help you track currency exchange rates.");
+            attachButtons(message, buttons);
+            message.setChatId(chatId);
 
-                try {
-                    execute(message);
-                } catch (TelegramApiException e) {
-                    e.printStackTrace();
-                }
+            try {
+                execute(message);
+            } catch (TelegramApiException e) {
+                e.printStackTrace();
             }
         }
+    }
 
     private void sendInfo(Long chatId) {
-        if(userBankSettings == null){
+        if (userBankSettings == null) {
+            numberAfterComa = 2;
             userBankSettings = getDefaultSettings();
         }
 
@@ -104,7 +120,6 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
     }
 
     private BankUtil getDefaultSettings() {
-        numberAfterComa = 2;
         MonoBankUtil monoBankUtil = new MonoBankUtil(numberAfterComa);
         monoBankUtil.setExchangeRates(new MonoBankExchangeRateClient().getMonoBankExchangeRates());
         return monoBankUtil;
@@ -226,7 +241,6 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
             e.printStackTrace();
         }
     }
-
 
 
     public Long getChatId(Update update) {
