@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="1f3ee305-d2d5-483f-bbdc-2757c3b02deb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bankUtil/NBUUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bankUtil/NBUUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/telegrambot/BotConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/telegrambot/BotConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/telegrambot/CurrencyExchangeBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/telegrambot/CurrencyExchangeBot.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="change-default-info" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -43,7 +45,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "change-default-info",
+    "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true"
   }
 }]]></component>
@@ -165,7 +167,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711130498001</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Додав NBUUtil">
+      <option name="closed" value="true" />
+      <created>1711195488693</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1711195488693</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -217,7 +227,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="method-choice-sign-after-coma" />
+                        <option value="change-default-info" />
                       </list>
                     </value>
                   </entry>
@@ -238,6 +248,7 @@
     <MESSAGE value="Сховав токен" />
     <MESSAGE value="Підправив класи, написав методи getDefaultSettings i getInfo" />
     <MESSAGE value="Реалізував вибір знаків після коми" />
-    <option name="LAST_COMMIT_MESSAGE" value="Реалізував вибір знаків після коми" />
+    <MESSAGE value="Додав NBUUtil" />
+    <option name="LAST_COMMIT_MESSAGE" value="Додав NBUUtil" />
   </component>
 </project>
