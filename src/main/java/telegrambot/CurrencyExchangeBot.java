@@ -1,8 +1,10 @@
 package telegrambot;
 
 import bankClient.MonoBankExchangeRateClient;
+import bankClient.PrivatBankExchangeRateClient;
 import bankUtil.BankUtil;
 import bankUtil.MonoBankUtil;
+import bankUtil.PrivatBankUtil;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -120,9 +122,9 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
     }
 
     private BankUtil getDefaultSettings() {
-        MonoBankUtil monoBankUtil = new MonoBankUtil(numberAfterComa);
-        monoBankUtil.setExchangeRates(new MonoBankExchangeRateClient().getMonoBankExchangeRates());
-        return monoBankUtil;
+        PrivatBankUtil privatBankUtil = new PrivatBankUtil(numberAfterComa);
+        privatBankUtil.setExchangeRates(new PrivatBankExchangeRateClient().getPrivatBankExchangeRates());
+        return privatBankUtil;
     }
 
     private void sendStartMenu(Long chatId) {
