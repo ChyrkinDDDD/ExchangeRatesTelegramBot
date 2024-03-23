@@ -1,9 +1,20 @@
 package telegrambot;
 
 import bankClient.MonoBankExchangeRateClient;
+
+import bankClient.NBUExchangeRateClient;
+import bankClient.PrivatBankExchangeRateClient;
+import bankModel.MonoBank;
+import bankModel.NBU;
+import bankModel.PrivatBank;
+import bankUtil.BankUtil;
+import bankUtil.MonoBankUtil;
+import bankUtil.NBUUtil;
+
 import bankClient.PrivatBankExchangeRateClient;
 import bankUtil.BankUtil;
 import bankUtil.MonoBankUtil;
+
 import bankUtil.PrivatBankUtil;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
@@ -13,6 +24,8 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMa
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
+import java.util.List;
+
 
 import java.util.*;
 
@@ -78,6 +91,16 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
                     userBankSettings.setReduction(numberAfterComa);
                     sendSettingsMenu(chatId);
                     break;
+                case "PrivatBank":
+                    handlePrivatBank(chatId);
+                    break;
+                case "Monobank":
+                    handleMonoBank(chatId);
+                    break;
+                case "NBU":
+                    handleNBU(chatId);
+                    break;
+
                 default:
             }
         } else {
@@ -267,4 +290,30 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
         markup.setKeyboard(keyboard);
         message.setReplyMarkup(markup);
     }
+
+    private void handlePrivatBank(Long chatId) {
+//        List<PrivatBank> privatBankCurrencies = new PrivatBankExchangeRateClient().getPrivatBankExchangeRates();
+//        userBankSettings = new PrivatBankUtil(numberAfterComa);
+//        userBankSettings.setReduction(numberAfterComa);
+//        userBankSettings.setExchangeRates(privatBankCurrencies);
+        sendStartMenu(chatId);
+    }
+
+    private void handleMonoBank(Long chatId) {
+        List<MonoBank> monoBankCurrencies = new MonoBankExchangeRateClient().getMonoBankExchangeRates();
+//        userBankSettings = new MonoBankUtil(numberAfterComa);
+//        userBankSettings.setReduction(numberAfterComa);
+//        userBankSettings.setExchangeRates(monoBankCurrencies);
+        sendStartMenu(chatId);
+    }
+
+    private void handleNBU(Long chatId) {
+        List<NBU> NBUBankCurrencies = new NBUExchangeRateClient().getNBUExchangeRates();
+//        userBankSettings = new NBUUtil()(numberAfterComa);
+//        userBankSettings.setReduction(numberAfterComa);
+//        userBankSettings.setExchangeRates(NBUBankCurrencies);
+        sendStartMenu(chatId);
+    }
+
+
 }
