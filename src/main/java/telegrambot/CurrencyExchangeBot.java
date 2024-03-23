@@ -36,6 +36,7 @@ import static telegrambot.BotConstants.BOT_TOKEN;
 public class CurrencyExchangeBot extends TelegramLongPollingBot {
     private BankUtil userBankSettings = null;
     private int numberAfterComa = 2;
+    private String currency;
 
     @Override
     public String getBotUsername() {
@@ -50,6 +51,12 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
     @Override
     public void onUpdateReceived(Update update) {
         Long chatId = getChatId(update);
+
+        if (userBankSettings == null) {
+            numberAfterComa = 2;
+            userBankSettings = getDefaultSettings();
+            currency = "USD";
+        }
 
         if (update.hasCallbackQuery()) {
             String callbackData = update.getCallbackQuery().getData();
@@ -100,7 +107,14 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
                 case "NBU":
                     handleNBU(chatId);
                     break;
-
+                case "USD":
+                    currency = "USD";
+                    sendStartMenu(chatId);
+                    break;
+                case "EUR":
+                    currency = "EUR";
+                    sendStartMenu(chatId);
+                    break;
                 default:
             }
         } else {
@@ -122,12 +136,12 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
     }
 
     private void sendInfo(Long chatId) {
-        if (userBankSettings == null) {
-            numberAfterComa = 2;
-            userBankSettings = getDefaultSettings();
-        }
+        String usdInfo;
+        if(currency.equals("USD"))
+            usdInfo = userBankSettings.getUSD();
+        else
+            usdInfo = userBankSettings.getEUR();
 
-        String usdInfo = userBankSettings.getUSD();
 
         SendMessage info = new SendMessage();
         info.setChatId(chatId);
