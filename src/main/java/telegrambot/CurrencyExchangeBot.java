@@ -1,6 +1,7 @@
 package telegrambot;
 
 import bankClient.MonoBankExchangeRateClient;
+
 import bankClient.NBUExchangeRateClient;
 import bankClient.PrivatBankExchangeRateClient;
 import bankModel.MonoBank;
@@ -9,6 +10,11 @@ import bankModel.PrivatBank;
 import bankUtil.BankUtil;
 import bankUtil.MonoBankUtil;
 import bankUtil.NBUUtil;
+
+import bankClient.PrivatBankExchangeRateClient;
+import bankUtil.BankUtil;
+import bankUtil.MonoBankUtil;
+
 import bankUtil.PrivatBankUtil;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
@@ -19,6 +25,7 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKe
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 import java.util.List;
+
 
 import java.util.*;
 
@@ -93,6 +100,7 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
                 case "NBU":
                     handleNBU(chatId);
                     break;
+
                 default:
             }
         } else {
@@ -306,5 +314,6 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
 //        userBankSettings.setExchangeRates(NBUBankCurrencies);
         sendStartMenu(chatId);
     }
+
 
 }
