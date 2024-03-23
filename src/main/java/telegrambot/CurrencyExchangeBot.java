@@ -39,6 +39,7 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
     private String currency;
     String selectedClient = "";
 
+
     @Override
     public String getBotUsername() {
         return BOT_NAME;
@@ -151,6 +152,7 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
                 "Get Info", "GetInfo",
                 "⚙\uFE0F Settings ⚙\uFE0F", "Settings"));
 
+
         try {
             execute(info);
         } catch (TelegramApiException e) {
@@ -200,6 +202,7 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
         }
     }
 
+
     public void sendDecimalPlacesMenu(Long chatId, String selectedClient) {
         Map<String, String> buttons = new LinkedHashMap<>();
         buttons.put("2" + (selectedClient.equals("2") ? " ✅" : ""), "2");
@@ -216,6 +219,7 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
+
 
     }
 
@@ -328,7 +332,4 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
         userBankSettings = nbuUtil;
         sendStartMenu(chatId);
     }
-
-
-
 }
