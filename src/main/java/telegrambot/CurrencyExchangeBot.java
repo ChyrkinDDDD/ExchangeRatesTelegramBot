@@ -129,10 +129,6 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
                     usersSettingsHashMap.get(chatId).setTime(18);
                     sendSettingsMenu(chatId);
                     break;
-                case "19":
-                    usersSettingsHashMap.get(chatId).setTime(19);
-                    sendSettingsMenu(chatId);
-                    break;
                 case "OFF":
                     usersSettingsHashMap.get(chatId).setTime(0);
                     sendSettingsMenu(chatId);
@@ -167,7 +163,7 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
 
             SendMessage message = new SendMessage();
             message.setText("Hello, glad to see you. This bot will help you track currency exchange rates.");
-            attachButtons(message, buttons);
+            attachButtons(message, buttons, 1);
             message.setChatId(chatId);
 
             usersSettingsHashMap.put(chatId,new UserSettings(getDefaultSettings(),2,"","PrivatBank",0));
@@ -198,13 +194,14 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
             }
         }
 
-
         SendMessage info = new SendMessage();
         info.setChatId(chatId);
         info.setText(outInfo);
-        attachButtons(info, Map.of(
-                "Get Info", "GetInfo",
-                "⚙\uFE0F Settings ⚙\uFE0F", "Settings"));
+
+        Map<String, String> buttons = new LinkedHashMap<>();
+        buttons.put("Get Info", "GetInfo");
+        buttons.put("⚙\uFE0F Settings ⚙\uFE0F", "Settings");
+        attachButtons(info, buttons, 1);
 
         try {
             execute(info);
@@ -227,7 +224,7 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
 
         SendMessage startMessage = new SendMessage();
         startMessage.setText("Your changes have been saved.");
-        attachButtons(startMessage, buttons);
+        attachButtons(startMessage, buttons, 1);
         startMessage.setChatId(chatId);
         try {
             execute(startMessage);
@@ -246,7 +243,7 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
 
         SendMessage settingsMessage = new SendMessage();
         settingsMessage.setText("Settings Menu");
-        attachButtons(settingsMessage, buttons);
+        attachButtons(settingsMessage, buttons, 1);
         settingsMessage.setChatId(chatId);
         try {
             execute(settingsMessage);
@@ -265,7 +262,7 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
 
         SendMessage decimalPlacesMessage = new SendMessage();
         decimalPlacesMessage.setText("DecimalPlaces");
-        attachButtons(decimalPlacesMessage, buttons);
+        attachButtons(decimalPlacesMessage, buttons, 1);
         decimalPlacesMessage.setChatId(chatId);
         try {
             execute(decimalPlacesMessage);
@@ -283,7 +280,7 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
 
         SendMessage banksMessage = new SendMessage();
         banksMessage.setText("Choose bank:");
-        attachButtons(banksMessage, buttons);
+        attachButtons(banksMessage, buttons, 1);
         banksMessage.setChatId(chatId);
         try {
             execute(banksMessage);
@@ -300,7 +297,7 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
 
         SendMessage currenciesMessage = new SendMessage();
         currenciesMessage.setText("Choose currency:");
-        attachButtons(currenciesMessage, buttons);
+        attachButtons(currenciesMessage, buttons, 1);
         currenciesMessage.setChatId(chatId);
         try {
             execute(currenciesMessage);
@@ -322,13 +319,12 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
         buttons.put("16" + (usersSettingsHashMap.get(chatId).getTime() == 16 ? " ✅" : ""), "16");
         buttons.put("17" + (usersSettingsHashMap.get(chatId).getTime() == 17 ? " ✅" : ""), "17");
         buttons.put("18" + (usersSettingsHashMap.get(chatId).getTime() == 18 ? " ✅" : ""), "18");
-        buttons.put("19" + (usersSettingsHashMap.get(chatId).getTime() == 19 ? " ✅" : ""), "19");
         buttons.put("\uD83D\uDD15 OFF \uD83D\uDD15" + (usersSettingsHashMap.get(chatId).getTime() == 0 ? " ✅" : ""), "OFF");
-        buttons.put("\uD83D\uDD19 Back \uD83D\uDD19", "Settings");
+
 
         SendMessage alertTimeMessage = new SendMessage();
         alertTimeMessage.setText("AlertTime:");
-        attachButtons(alertTimeMessage, buttons);
+        attachButtons(alertTimeMessage, buttons, 3);
 
         alertTimeMessage.setChatId(chatId);
         try {
@@ -348,16 +344,27 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
         return null;
     }
 
-    public void attachButtons(SendMessage message, Map<String, String> buttons) {
+    public void attachButtons(SendMessage message, Map<String, String> buttons, int buttonsPerRow) {
         InlineKeyboardMarkup markup = new InlineKeyboardMarkup();
         List<List<InlineKeyboardButton>> keyboard = new ArrayList<>();
+        List<InlineKeyboardButton> row = new ArrayList<>();
+
+        int count = 0;
+
         for (String buttonName : buttons.keySet()) {
             String buttonValue = buttons.get(buttonName);
             InlineKeyboardButton button = new InlineKeyboardButton();
             button.setText(buttonName);
             button.setCallbackData(buttonValue);
-            keyboard.add(Arrays.asList(button));
+            row.add(button);
+            count++;
+
+            if (count % buttonsPerRow == 0 || count == buttons.size()) {
+                keyboard.add(row);
+                row = new ArrayList<>();
+            }
         }
+
         markup.setKeyboard(keyboard);
         message.setReplyMarkup(markup);
     }
