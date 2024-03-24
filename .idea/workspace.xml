@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f3ee305-d2d5-483f-bbdc-2757c3b02deb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/settings/UserSettings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NBUUtil.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/telegrambot/BotConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/telegrambot/BotConstants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/telegrambot/CurrencyExchangeBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/telegrambot/CurrencyExchangeBot.java" afterDir="false" />
     </list>
@@ -25,7 +28,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="change-default-info" />
+        <entry key="$PROJECT_DIR$" value="UserSettings" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -77,11 +80,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.AppLauncher" />
         <item itemvalue="Application.CurrencyExchangeBot" />
         <item itemvalue="Application.AppLauncher" />
         <item itemvalue="Application.CurrencyExchangeBot" />
         <item itemvalue="Application.AppLauncher" />
+        <item itemvalue="Application.CurrencyExchangeBot" />
       </list>
     </recent_temporary>
   </component>
@@ -182,7 +185,23 @@
       <option name="project" value="LOCAL" />
       <updated>1711214778691</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="налаштував вибір валюти">
+      <option name="closed" value="true" />
+      <created>1711216110538</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1711216110538</updated>
+    </task>
+    <task id="LOCAL-00013" summary="налаштував вибір валюти">
+      <option name="closed" value="true" />
+      <created>1711216195619</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1711216195619</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -257,6 +276,7 @@
     <MESSAGE value="Реалізував вибір знаків після коми" />
     <MESSAGE value="Додав NBUUtil" />
     <MESSAGE value="Ініціалізував NBUUtil і трішки переробів роботу кнопок вибору банків" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ініціалізував NBUUtil і трішки переробів роботу кнопок вибору банків" />
+    <MESSAGE value="налаштував вибір валюти" />
+    <option name="LAST_COMMIT_MESSAGE" value="налаштував вибір валюти" />
   </component>
 </project>
