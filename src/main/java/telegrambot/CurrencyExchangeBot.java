@@ -15,12 +15,8 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMa
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import settings.UserSettings;
-
 import java.util.List;
-
-
 import java.util.*;
-
 import static telegrambot.BotConstants.BOT_NAME;
 import static telegrambot.BotConstants.BOT_TOKEN;
 
@@ -29,7 +25,6 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
     String selectedClient = "";
 
     HashMap<Long, UserSettings> usersSettingsHashMap = new HashMap<>();
-
 
     @Override
     public String getBotUsername() {
@@ -66,7 +61,6 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
                 case "GetInfo":
                     sendInfo(chatId);
                     break;
-
                 case "Start":
                     sendStartMenu(chatId);
                     break;
@@ -87,7 +81,6 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
                     usersSettingsHashMap.get(chatId).getBankUtil().setReduction(4);
                     usersSettingsHashMap.get(chatId).setNumberAfterComa(4);
                     sendSettingsMenu(chatId);
-                    sendSettingsMenu(chatId);
                     break;
                 case "PrivatBank":
                     selectedClient = "PrivatBank";
@@ -102,16 +95,6 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
                 case "NBU":
                     selectedClient = "NBU";
                     handleNBU(chatId);
-                    sendSettingsMenu(chatId);
-                    break;
-                case "USD":
-                    selectedClient = "USD";
-                    usersSettingsHashMap.get(chatId).setCurrency("USD");
-                    sendSettingsMenu(chatId);
-                    break;
-                case "EUR":
-                    selectedClient = "EUR";
-                    usersSettingsHashMap.get(chatId).setCurrency("EUR");
                     sendSettingsMenu(chatId);
                     break;
                 case "9":
@@ -154,12 +137,17 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
                     selectedClient = "18";
                     sendSettingsMenu(chatId);
                     break;
-                case "19":
-                    selectedClient = "19";
-                    sendSettingsMenu(chatId);
-                    break;
                 case "OFF":
                     selectedClient = "OFF";
+                    sendSettingsMenu(chatId);
+                case "USD":
+                    selectedClient = "USD";
+                    usersSettingsHashMap.get(chatId).setCurrency("USD");
+                    sendSettingsMenu(chatId);
+                    break;
+                case "EUR":
+                    selectedClient = "EUR";
+                    usersSettingsHashMap.get(chatId).setCurrency("EUR");
                     sendSettingsMenu(chatId);
                     break;
                 default:
@@ -171,9 +159,8 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
 
             SendMessage message = new SendMessage();
             message.setText("Hello, glad to see you. This bot will help you track currency exchange rates.");
-            attachButtons(message, buttons);
+            attachButtons(message, buttons, 1);
             message.setChatId(chatId);
-
 
             usersSettingsHashMap.put(chatId,new UserSettings(getDefaultSettings(),2,"USD"));
 
@@ -188,26 +175,26 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
     private void sendInfo(Long chatId) {
         String outInfo;
         UserSettings userSettings = usersSettingsHashMap.get(chatId);
-        if(userSettings.getCurrency().equals("USD"))
+        if (userSettings.getCurrency().equals("USD"))
             outInfo = userSettings.getBankUtil().getUSD();
         else
             outInfo = userSettings.getBankUtil().getEUR();
 
-
         SendMessage info = new SendMessage();
         info.setChatId(chatId);
         info.setText(outInfo);
-        attachButtons(info, Map.of(
-                "Get Info", "GetInfo",
-                "⚙\uFE0F Settings ⚙\uFE0F", "Settings"));
 
+        Map<String, String> buttons = new LinkedHashMap<>();
+        buttons.put("Get Info", "GetInfo");
+        buttons.put("⚙\uFE0F Settings ⚙\uFE0F", "Settings");
+
+        attachButtons(info, buttons, 1);
 
         try {
             execute(info);
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
-
     }
 
     private BankUtil getDefaultSettings() {
@@ -224,7 +211,7 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
 
         SendMessage startMessage = new SendMessage();
         startMessage.setText("Your changes have been saved.");
-        attachButtons(startMessage, buttons);
+        attachButtons(startMessage, buttons, 1);
         startMessage.setChatId(chatId);
         try {
             execute(startMessage);
@@ -243,7 +230,7 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
 
         SendMessage settingsMessage = new SendMessage();
         settingsMessage.setText("Settings Menu");
-        attachButtons(settingsMessage, buttons);
+        attachButtons(settingsMessage, buttons, 1);
         settingsMessage.setChatId(chatId);
         try {
             execute(settingsMessage);
@@ -262,15 +249,13 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
 
         SendMessage decimalPlacesMessage = new SendMessage();
         decimalPlacesMessage.setText("DecimalPlaces");
-        attachButtons(decimalPlacesMessage, buttons);
+        attachButtons(decimalPlacesMessage, buttons, 1);
         decimalPlacesMessage.setChatId(chatId);
         try {
             execute(decimalPlacesMessage);
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
-
-
     }
 
     private void sendBanksMenu(Long chatId, String selectedClient) {
@@ -282,7 +267,7 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
 
         SendMessage banksMessage = new SendMessage();
         banksMessage.setText("Choose bank:");
-        attachButtons(banksMessage, buttons);
+        attachButtons(banksMessage, buttons, 1);
         banksMessage.setChatId(chatId);
         try {
             execute(banksMessage);
@@ -299,7 +284,7 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
 
         SendMessage currenciesMessage = new SendMessage();
         currenciesMessage.setText("Choose currency:");
-        attachButtons(currenciesMessage, buttons);
+        attachButtons(currenciesMessage, buttons, 1);
         currenciesMessage.setChatId(chatId);
         try {
             execute(currenciesMessage);
@@ -321,13 +306,11 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
         buttons.put("16" + (selectedClient.equals("16") ? " ✅" : ""), "16");
         buttons.put("17" + (selectedClient.equals("17") ? " ✅" : ""), "17");
         buttons.put("18" + (selectedClient.equals("18") ? " ✅" : ""), "18");
-        buttons.put("19" + (selectedClient.equals("19") ? " ✅" : ""), "19");
         buttons.put("\uD83D\uDD15 OFF \uD83D\uDD15" + (selectedClient.equals("OFF") ? " ✅" : ""), "OFF");
-        buttons.put("\uD83D\uDD19 Back \uD83D\uDD19", "Settings");
 
         SendMessage alertTimeMessage = new SendMessage();
         alertTimeMessage.setText("AlertTime:");
-        attachButtons(alertTimeMessage, buttons);
+        attachButtons(alertTimeMessage, buttons, 3);
 
         alertTimeMessage.setChatId(chatId);
         try {
@@ -347,16 +330,27 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
         return null;
     }
 
-    public void attachButtons(SendMessage message, Map<String, String> buttons) {
+    public void attachButtons(SendMessage message, Map<String, String> buttons, int buttonsPerRow) {
         InlineKeyboardMarkup markup = new InlineKeyboardMarkup();
         List<List<InlineKeyboardButton>> keyboard = new ArrayList<>();
+        List<InlineKeyboardButton> row = new ArrayList<>();
+
+        int count = 0;
+
         for (String buttonName : buttons.keySet()) {
             String buttonValue = buttons.get(buttonName);
             InlineKeyboardButton button = new InlineKeyboardButton();
             button.setText(buttonName);
             button.setCallbackData(buttonValue);
-            keyboard.add(Arrays.asList(button));
+            row.add(button);
+            count++;
+
+            if (count % buttonsPerRow == 0 || count == buttons.size()) {
+                keyboard.add(row);
+                row = new ArrayList<>();
+            }
         }
+
         markup.setKeyboard(keyboard);
         message.setReplyMarkup(markup);
     }
