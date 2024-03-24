@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1f3ee305-d2d5-483f-bbdc-2757c3b02deb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/settings/UserSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/settings/UserSettings.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/telegrambot/BotConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/telegrambot/BotConstants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/telegrambot/CurrencyExchangeBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/telegrambot/CurrencyExchangeBot.java" afterDir="false" />
     </list>
@@ -44,7 +45,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "r-user-settings",
+    "git-widget-placeholder": "change-getinfo",
     "ignore.virus.scanning.warn.message": "true"
   }
 }]]></component>
@@ -79,8 +80,8 @@
       <list>
         <item itemvalue="Application.AppLauncher" />
         <item itemvalue="Application.CurrencyExchangeBot" />
-        <item itemvalue="Application.CurrencyExchangeBot" />
         <item itemvalue="Application.AppLauncher" />
+        <item itemvalue="Application.CurrencyExchangeBot" />
         <item itemvalue="Application.CurrencyExchangeBot" />
       </list>
     </recent_temporary>
@@ -198,7 +199,23 @@
       <option name="project" value="LOCAL" />
       <updated>1711216195619</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Версія 1 зберігання налаштувать користувача">
+      <option name="closed" value="true" />
+      <created>1711281151654</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1711281151654</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Версія 1 зберігання налаштувать користувача">
+      <option name="closed" value="true" />
+      <created>1711281216546</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1711281216546</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -250,7 +267,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="change-default-info" />
+                        <option value="r-user-settings" />
                       </list>
                     </value>
                   </entry>
@@ -274,6 +291,7 @@
     <MESSAGE value="Додав NBUUtil" />
     <MESSAGE value="Ініціалізував NBUUtil і трішки переробів роботу кнопок вибору банків" />
     <MESSAGE value="налаштував вибір валюти" />
-    <option name="LAST_COMMIT_MESSAGE" value="налаштував вибір валюти" />
+    <MESSAGE value="Версія 1 зберігання налаштувать користувача" />
+    <option name="LAST_COMMIT_MESSAGE" value="Версія 1 зберігання налаштувать користувача" />
   </component>
 </project>

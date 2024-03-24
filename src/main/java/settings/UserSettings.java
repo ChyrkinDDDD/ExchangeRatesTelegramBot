@@ -10,4 +10,6 @@ public class UserSettings {
     BankUtil bankUtil;
     int numberAfterComa;
     String currency;
+    String bank;
+    int time;
 }
