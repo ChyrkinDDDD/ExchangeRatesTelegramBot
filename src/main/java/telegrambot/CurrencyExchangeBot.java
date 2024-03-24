@@ -15,12 +15,8 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMa
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import settings.UserSettings;
-
 import java.util.List;
-
-
 import java.util.*;
-
 import static telegrambot.BotConstants.BOT_NAME;
 import static telegrambot.BotConstants.BOT_TOKEN;
 
@@ -29,7 +25,6 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
     String selectedClient = "";
 
     HashMap<Long, UserSettings> usersSettingsHashMap = new HashMap<>();
-
 
     @Override
     public String getBotUsername() {
@@ -66,35 +61,89 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
                 case "GetInfo":
                     sendInfo(chatId);
                     break;
-
                 case "Start":
                     sendStartMenu(chatId);
                     break;
                 case "2":
+                    selectedClient = "2";
                     usersSettingsHashMap.get(chatId).getBankUtil().setReduction(2);
                     usersSettingsHashMap.get(chatId).setNumberAfterComa(2);
                     sendSettingsMenu(chatId);
                     break;
                 case "3":
+                    selectedClient = "3";
                     usersSettingsHashMap.get(chatId).getBankUtil().setReduction(3);
                     usersSettingsHashMap.get(chatId).setNumberAfterComa(3);
                     sendSettingsMenu(chatId);
                     break;
                 case "4":
+                    selectedClient = "4";
                     usersSettingsHashMap.get(chatId).getBankUtil().setReduction(4);
                     usersSettingsHashMap.get(chatId).setNumberAfterComa(4);
                     sendSettingsMenu(chatId);
-                    sendSettingsMenu(chatId);
                     break;
                 case "PrivatBank":
+                    selectedClient = "PrivatBank";
                     handlePrivatBank(chatId);
+                    sendSettingsMenu(chatId);
                     break;
                 case "Monobank":
+                    selectedClient = "Monobank";
                     handleMonoBank(chatId);
+                    sendSettingsMenu(chatId);
                     break;
                 case "NBU":
+                    selectedClient = "NBU";
                     handleNBU(chatId);
+                    sendSettingsMenu(chatId);
                     break;
+                case "9":
+                    selectedClient = "9";
+                    sendSettingsMenu(chatId);
+                    break;
+                case "10":
+                    selectedClient = "10";
+                    sendSettingsMenu(chatId);
+                    break;
+                case "11":
+                    selectedClient = "11";
+                    sendSettingsMenu(chatId);
+                    break;
+                case "12":
+                    selectedClient = "12";
+                    sendSettingsMenu(chatId);
+                    break;
+                case "13":
+                    selectedClient = "13";
+                    sendSettingsMenu(chatId);
+                    break;
+                case "14":
+                    selectedClient = "14";
+                    sendSettingsMenu(chatId);
+                    break;
+                case "15":
+                    selectedClient = "15";
+                    sendSettingsMenu(chatId);
+                    break;
+                case "16":
+                    selectedClient = "16";
+                    sendSettingsMenu(chatId);
+                    break;
+                case "17":
+                    selectedClient = "17";
+                    sendSettingsMenu(chatId);
+                    break;
+                case "18":
+                    selectedClient = "18";
+                    sendSettingsMenu(chatId);
+                    break;
+                case "19":
+                    selectedClient = "19";
+                    sendSettingsMenu(chatId);
+                    break;
+                case "OFF":
+                    selectedClient = "OFF";
+                    sendSettingsMenu(chatId);
                 case "USD":
                     usersSettingsHashMap.get(chatId).setCurrency("USD");
                     sendStartMenu(chatId);
@@ -114,7 +163,6 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
             message.setText("Hello, glad to see you. This bot will help you track currency exchange rates.");
             attachButtons(message, buttons);
             message.setChatId(chatId);
-
 
             usersSettingsHashMap.put(chatId,new UserSettings(getDefaultSettings(),2,"USD"));
 
@@ -142,13 +190,11 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
                 "Get Info", "GetInfo",
                 "⚙\uFE0F Settings ⚙\uFE0F", "Settings"));
 
-
         try {
             execute(info);
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
-
     }
 
     private BankUtil getDefaultSettings() {
@@ -210,8 +256,6 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
-
-
     }
 
     private void sendBanksMenu(Long chatId, String selectedClient) {
@@ -307,8 +351,6 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
         PrivatBankUtil privatBankUtil = new PrivatBankUtil(userSettings.getNumberAfterComa());
         privatBankUtil.setExchangeRates(new PrivatBankExchangeRateClient().getPrivatBankExchangeRates());
         usersSettingsHashMap.put(chatId,new UserSettings(privatBankUtil,userSettings.getNumberAfterComa(),userSettings.getCurrency()));
-
-        sendStartMenu(chatId);
     }
 
     private void handleMonoBank(Long chatId) {
@@ -316,8 +358,6 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
         MonoBankUtil monoBankUtil = new MonoBankUtil(userSettings.getNumberAfterComa());
         monoBankUtil.setExchangeRates(new MonoBankExchangeRateClient().getMonoBankExchangeRates());
         usersSettingsHashMap.put(chatId,new UserSettings(monoBankUtil,userSettings.getNumberAfterComa(),userSettings.getCurrency()));
-
-        sendStartMenu(chatId);
     }
 
     private void handleNBU(Long chatId) {
@@ -325,6 +365,5 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
         NBUUtil nbuUtil = new NBUUtil(userSettings.getNumberAfterComa());
         nbuUtil.setExchangeRates(new NBUExchangeRateClient().getNBUExchangeRates());
         usersSettingsHashMap.put(chatId,new UserSettings(nbuUtil,userSettings.getNumberAfterComa(),userSettings.getCurrency()));
-        sendStartMenu(chatId);
     }
 }
