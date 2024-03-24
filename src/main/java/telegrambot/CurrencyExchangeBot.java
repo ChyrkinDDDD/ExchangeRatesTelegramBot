@@ -15,12 +15,8 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMa
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import settings.UserSettings;
-
 import java.util.List;
-
-
 import java.util.*;
-
 import static telegrambot.BotConstants.BOT_NAME;
 import static telegrambot.BotConstants.BOT_TOKEN;
 
@@ -29,7 +25,6 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
     String selectedClient = "";
 
     HashMap<Long, UserSettings> usersSettingsHashMap = new HashMap<>();
-
 
     @Override
     public String getBotUsername() {
@@ -66,7 +61,6 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
                 case "GetInfo":
                     sendInfo(chatId);
                     break;
-
                 case "Start":
                     sendStartMenu(chatId);
                     break;
@@ -87,7 +81,6 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
                     usersSettingsHashMap.get(chatId).getBankUtil().setReduction(4);
                     usersSettingsHashMap.get(chatId).setNumberAfterComa(4);
                     sendSettingsMenu(chatId);
-                    sendSettingsMenu(chatId);
                     break;
                 case "PrivatBank":
                     selectedClient = "PrivatBank";
@@ -102,16 +95,6 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
                 case "NBU":
                     selectedClient = "NBU";
                     handleNBU(chatId);
-                    sendSettingsMenu(chatId);
-                    break;
-                case "USD":
-                    selectedClient = "USD";
-                    usersSettingsHashMap.get(chatId).setCurrency("USD");
-                    sendSettingsMenu(chatId);
-                    break;
-                case "EUR":
-                    selectedClient = "EUR";
-                    usersSettingsHashMap.get(chatId).setCurrency("EUR");
                     sendSettingsMenu(chatId);
                     break;
                 case "9":
@@ -161,6 +144,13 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
                 case "OFF":
                     selectedClient = "OFF";
                     sendSettingsMenu(chatId);
+                case "USD":
+                    usersSettingsHashMap.get(chatId).setCurrency("USD");
+                    sendStartMenu(chatId);
+                    break;
+                case "EUR":
+                    usersSettingsHashMap.get(chatId).setCurrency("EUR");
+                    sendStartMenu(chatId);
                     break;
                 default:
             }
@@ -173,7 +163,6 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
             message.setText("Hello, glad to see you. This bot will help you track currency exchange rates.");
             attachButtons(message, buttons);
             message.setChatId(chatId);
-
 
             usersSettingsHashMap.put(chatId,new UserSettings(getDefaultSettings(),2,"USD"));
 
@@ -201,13 +190,11 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
                 "Get Info", "GetInfo",
                 "⚙\uFE0F Settings ⚙\uFE0F", "Settings"));
 
-
         try {
             execute(info);
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
-
     }
 
     private BankUtil getDefaultSettings() {
@@ -269,8 +256,6 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
-
-
     }
 
     private void sendBanksMenu(Long chatId, String selectedClient) {
