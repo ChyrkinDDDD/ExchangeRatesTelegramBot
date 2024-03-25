@@ -22,8 +22,6 @@ import static telegrambot.BotConstants.BOT_TOKEN;
 
 
 public class CurrencyExchangeBot extends TelegramLongPollingBot {
-    String selectedClient = "";
-
     HashMap<Long, UserSettings> usersSettingsHashMap = new HashMap<>();
 
     @Override
@@ -47,16 +45,16 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
                     sendSettingsMenu(chatId);
                     break;
                 case "DecimalPlaces":
-                    sendDecimalPlacesMenu(chatId, selectedClient);
+                    sendDecimalPlacesMenu(chatId);
                     break;
                 case "Banks":
-                    sendBanksMenu(chatId, selectedClient);
+                    sendBanksMenu(chatId);
                     break;
                 case "Currencies":
-                    sendCurrenciesMenu(chatId, selectedClient);
+                    sendCurrenciesMenu(chatId);
                     break;
                 case "AlertTime":
-                    sendAlertTimeMenu(chatId, selectedClient);
+                    sendAlertTimeMenu(chatId);
                     break;
                 case "GetInfo":
                     sendInfo(chatId);
@@ -65,104 +63,111 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
                     sendStartMenu(chatId);
                     break;
                 case "2":
-                    selectedClient = "2";
                     usersSettingsHashMap.get(chatId).getBankUtil().setReduction(2);
                     usersSettingsHashMap.get(chatId).setNumberAfterComa(2);
                     sendSettingsMenu(chatId);
                     break;
                 case "3":
-                    selectedClient = "3";
                     usersSettingsHashMap.get(chatId).getBankUtil().setReduction(3);
                     usersSettingsHashMap.get(chatId).setNumberAfterComa(3);
                     sendSettingsMenu(chatId);
                     break;
                 case "4":
-                    selectedClient = "4";
                     usersSettingsHashMap.get(chatId).getBankUtil().setReduction(4);
                     usersSettingsHashMap.get(chatId).setNumberAfterComa(4);
                     sendSettingsMenu(chatId);
                     break;
                 case "PrivatBank":
-                    selectedClient = "PrivatBank";
                     handlePrivatBank(chatId);
                     sendSettingsMenu(chatId);
                     break;
                 case "Monobank":
-                    selectedClient = "Monobank";
                     handleMonoBank(chatId);
                     sendSettingsMenu(chatId);
                     break;
                 case "NBU":
-                    selectedClient = "NBU";
                     handleNBU(chatId);
                     sendSettingsMenu(chatId);
                     break;
                 case "9":
-                    selectedClient = "9";
+                    usersSettingsHashMap.get(chatId).setTime(9);
                     sendSettingsMenu(chatId);
                     break;
                 case "10":
-                    selectedClient = "10";
+                    usersSettingsHashMap.get(chatId).setTime(10);
                     sendSettingsMenu(chatId);
                     break;
                 case "11":
-                    selectedClient = "11";
+                    usersSettingsHashMap.get(chatId).setTime(11);
                     sendSettingsMenu(chatId);
                     break;
                 case "12":
-                    selectedClient = "12";
+                    usersSettingsHashMap.get(chatId).setTime(12);
                     sendSettingsMenu(chatId);
                     break;
                 case "13":
-                    selectedClient = "13";
+                    usersSettingsHashMap.get(chatId).setTime(13);
                     sendSettingsMenu(chatId);
                     break;
                 case "14":
-                    selectedClient = "14";
+                    usersSettingsHashMap.get(chatId).setTime(14);
                     sendSettingsMenu(chatId);
                     break;
                 case "15":
-                    selectedClient = "15";
+                    usersSettingsHashMap.get(chatId).setTime(15);
                     sendSettingsMenu(chatId);
                     break;
                 case "16":
-                    selectedClient = "16";
+                    usersSettingsHashMap.get(chatId).setTime(16);
                     sendSettingsMenu(chatId);
                     break;
                 case "17":
-                    selectedClient = "17";
+                    usersSettingsHashMap.get(chatId).setTime(17);
                     sendSettingsMenu(chatId);
                     break;
                 case "18":
-                    selectedClient = "18";
+                    usersSettingsHashMap.get(chatId).setTime(18);
                     sendSettingsMenu(chatId);
                     break;
                 case "OFF":
-                    selectedClient = "OFF";
+                    usersSettingsHashMap.get(chatId).setTime(0);
                     sendSettingsMenu(chatId);
+                    break;
                 case "USD":
-                    selectedClient = "USD";
-                    usersSettingsHashMap.get(chatId).setCurrency("USD");
+                    if(usersSettingsHashMap.get(chatId).getCurrency().contains("USD")){
+                        String currency = usersSettingsHashMap.get(chatId).getCurrency().replace("USD","");
+                        usersSettingsHashMap.get(chatId).setCurrency(currency);
+                    }
+                    else {
+                        String currency = usersSettingsHashMap.get(chatId).getCurrency()+"USD";
+                        usersSettingsHashMap.get(chatId).setCurrency(currency);
+                    }
                     sendSettingsMenu(chatId);
                     break;
                 case "EUR":
-                    selectedClient = "EUR";
-                    usersSettingsHashMap.get(chatId).setCurrency("EUR");
+                    if(usersSettingsHashMap.get(chatId).getCurrency().contains("EUR")){
+                        String currency = usersSettingsHashMap.get(chatId).getCurrency().replace("EUR","");
+                        usersSettingsHashMap.get(chatId).setCurrency(currency);
+                    }
+                    else {
+                        String currency = usersSettingsHashMap.get(chatId).getCurrency()+"EUR";
+                        usersSettingsHashMap.get(chatId).setCurrency(currency);
+                    }
                     sendSettingsMenu(chatId);
                     break;
                 default:
             }
         } else {
             Map<String, String> buttons = new LinkedHashMap<>();
-            buttons.put("Get Info", "GetInfo");
-            buttons.put("Settings", "Settings");
+            buttons.put("ℹ\uFE0F Get Info ℹ\uFE0F", "GetInfo");
+            buttons.put("⚙\uFE0F Settings ⚙\uFE0F", "Settings");
 
             SendMessage message = new SendMessage();
             message.setText("Hello, glad to see you. This bot will help you track currency exchange rates.");
             attachButtons(message, buttons, 1);
             message.setChatId(chatId);
 
-            usersSettingsHashMap.put(chatId,new UserSettings(getDefaultSettings(),2,"USD"));
+            usersSettingsHashMap.put(chatId,new UserSettings(getDefaultSettings(),2,"","PrivatBank",0));
 
             try {
                 execute(message);
@@ -175,19 +180,28 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
     private void sendInfo(Long chatId) {
         String outInfo;
         UserSettings userSettings = usersSettingsHashMap.get(chatId);
-        if (userSettings.getCurrency().equals("USD"))
+        String selectedCurrency = usersSettingsHashMap.get(chatId).getCurrency();
+
+        if (userSettings.getCurrency().equals("")){
             outInfo = userSettings.getBankUtil().getUSD();
-        else
-            outInfo = userSettings.getBankUtil().getEUR();
+        }else {
+            if (selectedCurrency.contains("EUR") && selectedCurrency.contains("USD")) {
+                outInfo = userSettings.getBankUtil().getUSD();
+                outInfo += "\n" + userSettings.getBankUtil().getEUR();
+            } else if (selectedCurrency.contains("EUR")) {
+                outInfo = userSettings.getBankUtil().getEUR();
+            } else {
+                outInfo = userSettings.getBankUtil().getUSD();
+            }
+        }
 
         SendMessage info = new SendMessage();
         info.setChatId(chatId);
         info.setText(outInfo);
 
         Map<String, String> buttons = new LinkedHashMap<>();
-        buttons.put("Get Info", "GetInfo");
+        buttons.put("ℹ\uFE0F Get Info ℹ\uFE0F", "GetInfo");
         buttons.put("⚙\uFE0F Settings ⚙\uFE0F", "Settings");
-
         attachButtons(info, buttons, 1);
 
         try {
@@ -206,7 +220,7 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
 
     private void sendStartMenu(Long chatId) {
         Map<String, String> buttons = new LinkedHashMap<>();
-        buttons.put("Get Info", "GetInfo");
+        buttons.put("ℹ\uFE0F Get Info ℹ\uFE0F", "GetInfo");
         buttons.put("⚙\uFE0F Settings ⚙\uFE0F", "Settings");
 
         SendMessage startMessage = new SendMessage();
@@ -240,11 +254,11 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
     }
 
 
-    public void sendDecimalPlacesMenu(Long chatId, String selectedClient) {
+    public void sendDecimalPlacesMenu(Long chatId) {
         Map<String, String> buttons = new LinkedHashMap<>();
-        buttons.put("2" + (selectedClient.equals("2") ? " ✅" : ""), "2");
-        buttons.put("3" + (selectedClient.equals("3") ? " ✅" : ""), "3");
-        buttons.put("4" + (selectedClient.equals("4") ? " ✅" : ""), "4");
+        buttons.put("2" + (usersSettingsHashMap.get(chatId).getNumberAfterComa() == 2 ? " ✅" : ""), "2");
+        buttons.put("3" + (usersSettingsHashMap.get(chatId).getNumberAfterComa() == 3 ? " ✅" : ""), "3");
+        buttons.put("4" + (usersSettingsHashMap.get(chatId).getNumberAfterComa() == 4 ? " ✅" : ""), "4");
         buttons.put("\uD83D\uDD19 Back \uD83D\uDD19", "Settings");
 
         SendMessage decimalPlacesMessage = new SendMessage();
@@ -258,11 +272,11 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
         }
     }
 
-    private void sendBanksMenu(Long chatId, String selectedClient) {
+    private void sendBanksMenu(Long chatId) {
         Map<String, String> buttons = new LinkedHashMap<>();
-        buttons.put("Monobank" + (selectedClient.equals("Monobank") ? " ✅" : ""), "Monobank");
-        buttons.put("PrivatBank" + (selectedClient.equals("PrivatBank") ? " ✅" : ""), "PrivatBank");
-        buttons.put("NBU" + (selectedClient.equals("NBU") ? " ✅" : ""), "NBU");
+        buttons.put("Monobank" + (usersSettingsHashMap.get(chatId).getBank().equals("Monobank") ? " ✅" : ""), "Monobank");
+        buttons.put("PrivatBank" + (usersSettingsHashMap.get(chatId).getBank().equals("PrivatBank") ? " ✅" : ""), "PrivatBank");
+        buttons.put("NBU" + (usersSettingsHashMap.get(chatId).getBank().equals("NBU") ? " ✅" : ""), "NBU");
         buttons.put("\uD83D\uDD19 Back \uD83D\uDD19", "Settings");
 
         SendMessage banksMessage = new SendMessage();
@@ -276,10 +290,10 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
         }
     }
 
-    private void sendCurrenciesMenu(Long chatId, String selectedClient) {
+    private void sendCurrenciesMenu(Long chatId) {
         Map<String, String> buttons = new LinkedHashMap<>();
-        buttons.put("\uD83D\uDCB6 EUR \uD83D\uDCB6" + (selectedClient.equals("EUR") ? " ✅" : ""), "EUR");
-        buttons.put("\uD83D\uDCB5 USD \uD83D\uDCB5" + (selectedClient.equals("USD") ? "✅" : ""), "USD");
+        buttons.put("\uD83D\uDCB6 EUR \uD83D\uDCB6" + (usersSettingsHashMap.get(chatId).getCurrency().contains("EUR") ? " ✅" : ""), "EUR");
+        buttons.put("\uD83D\uDCB5 USD \uD83D\uDCB5" + (usersSettingsHashMap.get(chatId).getCurrency().contains("USD") ? "✅" : ""), "USD");
         buttons.put("\uD83D\uDD19 Back \uD83D\uDD19", "Settings");
 
         SendMessage currenciesMessage = new SendMessage();
@@ -293,20 +307,21 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
         }
     }
 
-    public void sendAlertTimeMenu(Long chatId, String selectedClient) {
+    public void sendAlertTimeMenu(Long chatId) {
 
         Map<String, String> buttons = new LinkedHashMap<>();
-        buttons.put("9" + (selectedClient.equals("9") ? " ✅" : ""), "9");
-        buttons.put("10" + (selectedClient.equals("10") ? " ✅" : ""), "10");
-        buttons.put("11" + (selectedClient.equals("11") ? " ✅" : ""), "11");
-        buttons.put("12" + (selectedClient.equals("12") ? " ✅" : ""), "12");
-        buttons.put("13" + (selectedClient.equals("13") ? " ✅" : ""), "13");
-        buttons.put("14" + (selectedClient.equals("14") ? " ✅" : ""), "14");
-        buttons.put("15" + (selectedClient.equals("15") ? " ✅" : ""), "15");
-        buttons.put("16" + (selectedClient.equals("16") ? " ✅" : ""), "16");
-        buttons.put("17" + (selectedClient.equals("17") ? " ✅" : ""), "17");
-        buttons.put("18" + (selectedClient.equals("18") ? " ✅" : ""), "18");
-        buttons.put("\uD83D\uDD15 OFF \uD83D\uDD15" + (selectedClient.equals("OFF") ? " ✅" : ""), "OFF");
+        buttons.put("9" + (usersSettingsHashMap.get(chatId).getTime() == 9 ? " ✅" : ""), "9");
+        buttons.put("10" + (usersSettingsHashMap.get(chatId).getTime() == 10 ? " ✅" : ""), "10");
+        buttons.put("11" + (usersSettingsHashMap.get(chatId).getTime() == 11 ? " ✅" : ""), "11");
+        buttons.put("12" + (usersSettingsHashMap.get(chatId).getTime() == 12 ? " ✅" : ""), "12");
+        buttons.put("13" + (usersSettingsHashMap.get(chatId).getTime() == 13 ? " ✅" : ""), "13");
+        buttons.put("14" + (usersSettingsHashMap.get(chatId).getTime() == 14 ? " ✅" : ""), "14");
+        buttons.put("15" + (usersSettingsHashMap.get(chatId).getTime() == 15 ? " ✅" : ""), "15");
+        buttons.put("16" + (usersSettingsHashMap.get(chatId).getTime() == 16 ? " ✅" : ""), "16");
+        buttons.put("17" + (usersSettingsHashMap.get(chatId).getTime() == 17 ? " ✅" : ""), "17");
+        buttons.put("18" + (usersSettingsHashMap.get(chatId).getTime() == 18 ? " ✅" : ""), "18");
+        buttons.put("\uD83D\uDD15 OFF \uD83D\uDD15" + (usersSettingsHashMap.get(chatId).getTime() == 0 ? " ✅" : ""), "OFF");
+
 
         SendMessage alertTimeMessage = new SendMessage();
         alertTimeMessage.setText("AlertTime:");
@@ -359,20 +374,20 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
         UserSettings userSettings = usersSettingsHashMap.get(chatId);
         PrivatBankUtil privatBankUtil = new PrivatBankUtil(userSettings.getNumberAfterComa());
         privatBankUtil.setExchangeRates(new PrivatBankExchangeRateClient().getPrivatBankExchangeRates());
-        usersSettingsHashMap.put(chatId,new UserSettings(privatBankUtil,userSettings.getNumberAfterComa(),userSettings.getCurrency()));
+        usersSettingsHashMap.put(chatId,new UserSettings(privatBankUtil,userSettings.getNumberAfterComa(),userSettings.getCurrency(), "PrivatBank",userSettings.getTime()));
     }
 
     private void handleMonoBank(Long chatId) {
         UserSettings userSettings = usersSettingsHashMap.get(chatId);
         MonoBankUtil monoBankUtil = new MonoBankUtil(userSettings.getNumberAfterComa());
         monoBankUtil.setExchangeRates(new MonoBankExchangeRateClient().getMonoBankExchangeRates());
-        usersSettingsHashMap.put(chatId,new UserSettings(monoBankUtil,userSettings.getNumberAfterComa(),userSettings.getCurrency()));
+        usersSettingsHashMap.put(chatId,new UserSettings(monoBankUtil,userSettings.getNumberAfterComa(),userSettings.getCurrency(),"Monobank", userSettings.getTime()));
     }
 
     private void handleNBU(Long chatId) {
         UserSettings userSettings = usersSettingsHashMap.get(chatId);
         NBUUtil nbuUtil = new NBUUtil(userSettings.getNumberAfterComa());
         nbuUtil.setExchangeRates(new NBUExchangeRateClient().getNBUExchangeRates());
-        usersSettingsHashMap.put(chatId,new UserSettings(nbuUtil,userSettings.getNumberAfterComa(),userSettings.getCurrency()));
+        usersSettingsHashMap.put(chatId,new UserSettings(nbuUtil,userSettings.getNumberAfterComa(),userSettings.getCurrency(), "NBU",userSettings.getTime()));
     }
 }
