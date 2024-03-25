@@ -132,6 +132,7 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
                 case "OFF":
                     usersSettingsHashMap.get(chatId).setTime(0);
                     sendSettingsMenu(chatId);
+                    break;
                 case "USD":
                     if(usersSettingsHashMap.get(chatId).getCurrency().contains("USD")){
                         String currency = usersSettingsHashMap.get(chatId).getCurrency().replace("USD","");
@@ -141,7 +142,7 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
                         String currency = usersSettingsHashMap.get(chatId).getCurrency()+"USD";
                         usersSettingsHashMap.get(chatId).setCurrency(currency);
                     }
-                    sendStartMenu(chatId);
+                    sendSettingsMenu(chatId);
                     break;
                 case "EUR":
                     if(usersSettingsHashMap.get(chatId).getCurrency().contains("EUR")){
@@ -152,14 +153,14 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
                         String currency = usersSettingsHashMap.get(chatId).getCurrency()+"EUR";
                         usersSettingsHashMap.get(chatId).setCurrency(currency);
                     }
-                    sendStartMenu(chatId);
+                    sendSettingsMenu(chatId);
                     break;
                 default:
             }
         } else {
             Map<String, String> buttons = new LinkedHashMap<>();
-            buttons.put("Get Info", "GetInfo");
-            buttons.put("Settings", "Settings");
+            buttons.put("ℹ\uFE0F Get Info ℹ\uFE0F", "GetInfo");
+            buttons.put("⚙\uFE0F Settings ⚙\uFE0F", "Settings");
 
             SendMessage message = new SendMessage();
             message.setText("Hello, glad to see you. This bot will help you track currency exchange rates.");
@@ -199,7 +200,7 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
         info.setText(outInfo);
 
         Map<String, String> buttons = new LinkedHashMap<>();
-        buttons.put("Get Info", "GetInfo");
+        buttons.put("ℹ\uFE0F Get Info ℹ\uFE0F", "GetInfo");
         buttons.put("⚙\uFE0F Settings ⚙\uFE0F", "Settings");
         attachButtons(info, buttons, 1);
 
@@ -219,7 +220,7 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
 
     private void sendStartMenu(Long chatId) {
         Map<String, String> buttons = new LinkedHashMap<>();
-        buttons.put("Get Info", "GetInfo");
+        buttons.put("ℹ\uFE0F Get Info ℹ\uFE0F", "GetInfo");
         buttons.put("⚙\uFE0F Settings ⚙\uFE0F", "Settings");
 
         SendMessage startMessage = new SendMessage();
