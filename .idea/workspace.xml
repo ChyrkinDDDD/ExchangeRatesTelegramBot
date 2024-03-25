@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1f3ee305-d2d5-483f-bbdc-2757c3b02deb" name="Changes" comment="">
+    <list default="true" id="1f3ee305-d2d5-483f-bbdc-2757c3b02deb" name="Changes" comment="Налаштував повідомлення">
+      <change afterPath="$PROJECT_DIR$/src/main/java/alertTime/AlertTime.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/settings/UserSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/settings/UserSettings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main/AppLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appLauncher/AppLauncher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/buttonImplementation/ButtonPrivatBank.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/telegrambot/BotConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/telegrambot/BotConstants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/telegrambot/CurrencyExchangeBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/telegrambot/CurrencyExchangeBot.java" afterDir="false" />
     </list>
@@ -26,7 +28,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="change-getinfo" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -41,21 +43,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "change-getinfo",
-    "ignore.virus.scanning.warn.message": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/Programing/ExchangeRatesTelegramBot-master&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.AppLauncher">
     <configuration name="AppLauncher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main.AppLauncher" />
+      <option name="MAIN_CLASS_NAME" value="appLauncher.AppLauncher" />
       <module name="ExchangeRatesTelegramBot" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Main.*" />
+          <option name="PATTERN" value="appLauncher.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -82,7 +85,7 @@
         <item itemvalue="Application.CurrencyExchangeBot" />
         <item itemvalue="Application.AppLauncher" />
         <item itemvalue="Application.CurrencyExchangeBot" />
-        <item itemvalue="Application.CurrencyExchangeBot" />
+        <item itemvalue="Application.AppLauncher" />
       </list>
     </recent_temporary>
   </component>
@@ -215,7 +218,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711281216546</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Налаштував галочки і додав поля в сетінгс">
+      <option name="closed" value="true" />
+      <created>1711305042427</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1711305042427</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -292,6 +303,8 @@
     <MESSAGE value="Ініціалізував NBUUtil і трішки переробів роботу кнопок вибору банків" />
     <MESSAGE value="налаштував вибір валюти" />
     <MESSAGE value="Версія 1 зберігання налаштувать користувача" />
-    <option name="LAST_COMMIT_MESSAGE" value="Версія 1 зберігання налаштувать користувача" />
+    <MESSAGE value="Налаштував галочки і додав поля в сетінгс" />
+    <MESSAGE value="Налаштував повідомлення" />
+    <option name="LAST_COMMIT_MESSAGE" value="Налаштував повідомлення" />
   </component>
 </project>

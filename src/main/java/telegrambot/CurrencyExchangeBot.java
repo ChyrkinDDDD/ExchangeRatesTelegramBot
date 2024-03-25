@@ -24,6 +24,10 @@ import static telegrambot.BotConstants.BOT_TOKEN;
 public class CurrencyExchangeBot extends TelegramLongPollingBot {
     HashMap<Long, UserSettings> usersSettingsHashMap = new HashMap<>();
 
+    public  HashMap<Long, UserSettings> getUsersSettingsHashMap(){
+        return usersSettingsHashMap;
+    }
+
     @Override
     public String getBotUsername() {
         return BOT_NAME;
@@ -177,7 +181,7 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
         }
     }
 
-    private void sendInfo(Long chatId) {
+    public void sendInfo(Long chatId) {
         String outInfo;
         UserSettings userSettings = usersSettingsHashMap.get(chatId);
         String selectedCurrency = usersSettingsHashMap.get(chatId).getCurrency();
