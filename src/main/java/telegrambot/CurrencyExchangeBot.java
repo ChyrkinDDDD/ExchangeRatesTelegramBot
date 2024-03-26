@@ -22,11 +22,20 @@ import static telegrambot.BotConstants.BOT_TOKEN;
 
 
 public class CurrencyExchangeBot extends TelegramLongPollingBot {
-    HashMap<Long, UserSettings> usersSettingsHashMap = new HashMap<>();
+    private Map<Long, UserSettings> usersSettingsHashMap = new HashMap<>();
+    private static CurrencyExchangeBot bot;
+    private CurrencyExchangeBot(){}
+    public static CurrencyExchangeBot getBot(){
+        if(bot == null){
+            bot = new CurrencyExchangeBot();
+        }
+        return bot;
+    }
 
-    public  HashMap<Long, UserSettings> getUsersSettingsHashMap(){
+    public  Map<Long, UserSettings> getUsersSettingsHashMap(){
         return usersSettingsHashMap;
     }
+
 
     @Override
     public String getBotUsername() {

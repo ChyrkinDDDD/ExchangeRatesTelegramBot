@@ -5,6 +5,7 @@ import telegrambot.CurrencyExchangeBot;
 
 import java.time.LocalTime;
 import java.util.HashMap;
+import java.util.Map;
 
 public class AlertTime  implements Runnable{
     CurrencyExchangeBot bot;
@@ -24,7 +25,7 @@ public class AlertTime  implements Runnable{
                     throw new RuntimeException(e);
                 }
             }else {
-                HashMap<Long, UserSettings> usersSettingsHashMap = bot.getUsersSettingsHashMap();
+                Map<Long, UserSettings> usersSettingsHashMap = bot.getUsersSettingsHashMap();
 
                 for (Long chatId : usersSettingsHashMap.keySet()){
                     UserSettings userSettings = usersSettingsHashMap.get(chatId);

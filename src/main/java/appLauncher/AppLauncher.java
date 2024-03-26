@@ -8,11 +8,10 @@ import telegrambot.CurrencyExchangeBot;
 
 public class AppLauncher {
     public static void main(String[] args) throws TelegramApiException {
-        CurrencyExchangeBot bot = new CurrencyExchangeBot();
         TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
-        telegramBotsApi.registerBot(bot);
+        telegramBotsApi.registerBot(CurrencyExchangeBot.getBot());
 
-        Thread alertTimeThread = new Thread(new AlertTime(bot));
+        Thread alertTimeThread = new Thread(new AlertTime(CurrencyExchangeBot.getBot()));
         alertTimeThread.start();
     }
 }
