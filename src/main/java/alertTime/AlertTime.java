@@ -25,20 +25,21 @@ public class AlertTime  implements Runnable{
                     throw new RuntimeException(e);
                 }
             }else {
-                Map<Long, UserSettings> usersSettingsHashMap = bot.getUsersSettingsHashMap();
-
-                for (Long chatId : usersSettingsHashMap.keySet()){
-                    UserSettings userSettings = usersSettingsHashMap.get(chatId);
-                    if(userSettings.getTime() > 0 && userSettings.getTime() == currentTime.getHour()) {
-                        bot.sendInfo(chatId);
-                    }
-                }
-
+                sendMassage(CurrencyExchangeBot.getBot().getUsersSettingsHashMap(),currentTime);
                 try {
                     Thread.sleep(3600000L);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
+            }
+        }
+    }
+
+    public void sendMassage(Map<Long,UserSettings> usersSettingsHashMap,LocalTime currentTime){
+        for (Long chatId : usersSettingsHashMap.keySet()){
+            UserSettings userSettings = usersSettingsHashMap.get(chatId);
+            if(userSettings.getTime() > 0 && userSettings.getTime() == currentTime.getHour()) {
+                bot.sendInfo(chatId);
             }
         }
     }
