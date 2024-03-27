@@ -31,16 +31,17 @@ public class PrivatBankExchangeRateClient {
 
         } catch (URISyntaxException e) {
             System.out.println("PRIVAT URI SYNTAX EXCEPTION!");
-            throw new RuntimeException(e);
+            e.printStackTrace();
         } catch (JsonMappingException e) {
             System.out.println("PRIVAT Json Mapping Exception!");
-            throw new RuntimeException(e);
+            e.printStackTrace();
         } catch (IOException e) {
             System.out.println("PRIVAT IOException!");
-            throw new RuntimeException(e);
+            e.printStackTrace();
         } catch (InterruptedException e) {
             System.out.println("PRIVAT Interrupted Exception");
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
+        return null;
     }
 }

@@ -6,10 +6,10 @@ import lombok.Data;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MonoBank{
-    int currencyCodeA;
-    int currencyCodeB;
-    long date;
-    float rateSell;
-    float rateBuy;
-    float rateCross;
+    private int currencyCodeA;
+    private int currencyCodeB;
+    private long date;
+    private float rateSell;
+    private float rateBuy;
+    private float rateCross;
 }

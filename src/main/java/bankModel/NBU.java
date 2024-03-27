@@ -7,10 +7,10 @@ import lombok.Data;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class NBU {
-    int r030;
-    String txt;
-    float rate;
-    String cc;
-    String exchangedate;
+    private int r030;
+    private String txt;
+    private float rate;
+    private String cc;
+    private String exchangedate;
 }
 

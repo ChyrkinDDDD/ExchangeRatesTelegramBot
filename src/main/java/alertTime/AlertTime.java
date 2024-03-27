@@ -22,14 +22,16 @@ public class AlertTime  implements Runnable{
                 try {
                     Thread.sleep((long) (60 - minute) * 60000);
                 } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
+                    e.printStackTrace();
+                    System.out.println("CANT SEEP!");
                 }
             }else {
                 sendMassage(CurrencyExchangeBot.getBot().getUsersSettingsHashMap(),currentTime);
                 try {
                     Thread.sleep(3600000L);
                 } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
+                    e.printStackTrace();
+                    System.out.println("CANT SEEP FOR HOUR");
                 }
             }
         }

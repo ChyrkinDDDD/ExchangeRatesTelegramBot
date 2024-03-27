@@ -32,16 +32,17 @@ public class NBUExchangeRateClient {
 
         } catch (URISyntaxException e) {
             System.out.println("NBU URI SYNTAX EXCEPTION!");
-            throw new RuntimeException(e);
+            e.printStackTrace();
         } catch (JsonMappingException e) {
             System.out.println("NBU Json Mapping Exception!");
-            throw new RuntimeException(e);
+            e.printStackTrace();
         } catch (IOException e) {
             System.out.println("NBU IOException!");
-            throw new RuntimeException(e);
+            e.printStackTrace();
         } catch (InterruptedException e) {
             System.out.println("NBU Interrupted Exception");
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
+        return null;
     }
 }

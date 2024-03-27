@@ -31,16 +31,17 @@ public class MonoBankExchangeRateClient {
 
         }catch (URISyntaxException e){
             System.out.println("MONO URI SYNTAX EXCEPTION!");
-            throw new RuntimeException(e);
+            e.printStackTrace();
         } catch (JsonMappingException e) {
             System.out.println("MONO Json Mapping Exception!");
-            throw new RuntimeException(e);
+            e.printStackTrace();
         } catch (IOException e) {
             System.out.println("MONO IOException!");
-            throw new RuntimeException(e);
+            e.printStackTrace();
         } catch (InterruptedException e) {
             System.out.println("MONO Interrupted Exception");
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
+        return null;
     }
 }

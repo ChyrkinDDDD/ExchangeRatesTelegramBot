@@ -36,7 +36,6 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
         return usersSettingsHashMap;
     }
 
-
     @Override
     public String getBotUsername() {
         return BOT_NAME;
@@ -186,6 +185,7 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
                 execute(message);
             } catch (TelegramApiException e) {
                 e.printStackTrace();
+                System.out.println("ERROR FROM TELEGRAM LOGIC");
             }
         }
     }
@@ -221,6 +221,7 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
             execute(info);
         } catch (TelegramApiException e) {
             e.printStackTrace();
+            System.out.println("ERROR FROM TELEGRAM LOGIC(sendInfo)");
         }
     }
 
@@ -244,6 +245,7 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
             execute(startMessage);
         } catch (TelegramApiException e) {
             e.printStackTrace();
+            System.out.println("ERROR FROM TELEGRAM LOGIC(sendStartMenu)");
         }
     }
 
@@ -263,6 +265,7 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
             execute(settingsMessage);
         } catch (TelegramApiException e) {
             e.printStackTrace();
+            System.out.println("ERROR FROM TELEGRAM LOGIC(sendSettingsMenu)");
         }
     }
 
@@ -282,6 +285,7 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
             execute(decimalPlacesMessage);
         } catch (TelegramApiException e) {
             e.printStackTrace();
+            System.out.println("ERROR FROM TELEGRAM LOGIC(sendDecimalPlacesMenu)");
         }
     }
 
@@ -300,6 +304,7 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
             execute(banksMessage);
         } catch (TelegramApiException e) {
             e.printStackTrace();
+            System.out.println("ERROR FROM TELEGRAM LOGIC(sendBanksMenu)");
         }
     }
 
@@ -317,6 +322,7 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
             execute(currenciesMessage);
         } catch (TelegramApiException e) {
             e.printStackTrace();
+            System.out.println("ERROR FROM TELEGRAM LOGIC(sendCurrenciesMenu)");
         }
     }
 
@@ -345,6 +351,7 @@ public class CurrencyExchangeBot extends TelegramLongPollingBot {
             execute(alertTimeMessage);
         } catch (TelegramApiException e) {
             e.printStackTrace();
+            System.out.println("ERROR FROM TELEGRAM LOGIC(sendAlertTimeMenu)");
         }
     }
 
